@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<title>Result</title>
+<script type="text/javascript">
+  let dStr = "{{info | safe}}";//console.log(dStr);
+  dStr = dStr.replace(/None/g, "null"); //将None替换为null
+  dStr = dStr.replace(/nan/g, "null");
+  dStr = dStr.replace(/\'/g, "\""); //单引号替换为双引号
+  let info = JSON.parse(dStr);
+  console.log('info', info);
+</script>
+</head>
+
+<body >
+<div class="contain">  
+    <p>------***  Recognition results  ***------</p>
+
+    {% for item in info%}
+    <p>{{ item }}</p>
+    {% endfor %}
+
+</div>  
+</body>
+</html>

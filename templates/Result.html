@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Result</title>
+
+    <link href="../static/css/rely/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../static/css/rely/style.css?v=4.1.0" rel="stylesheet">
+<script type="text/javascript">
+  let dStr = "{{info | safe}}";//console.log(dStr);
+  dStr = dStr.replace(/None/g, "null"); //将None替换为null
+  dStr = dStr.replace(/nan/g, "null");
+  dStr = dStr.replace(/\'/g, "\""); //单引号替换为双引号
+  let info = JSON.parse(dStr);
+  console.log('info', info);
+</script>
+
+</head>
+
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header">
+        <div class="col-sm-12">
+            <blockquote class="" style="font-size:14px">
+            <a href={{info['dir']}} download={{ info['name'] }}>点击下载</a>
+            </blockquote>
+
+           <!--  <hr> -->
+        </div>
+        
+     </div>  
+
+</body>
+
+</html>
